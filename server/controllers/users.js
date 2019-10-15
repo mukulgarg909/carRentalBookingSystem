@@ -14,11 +14,11 @@ module.exports.createUser = function(req, res) {
 	}, function(err, user) {
 		if (err) {
 			console.log('Error');
-			res.redirect('/');
+			res.redirect('https://localhost:3000');
 		} else {
 			console.log(user);
 			req.session.user = user;
-			res.redirect('/');
+			res.redirect('https://localhost:3000');
 		}
 	})
 }
@@ -30,17 +30,17 @@ module.exports.loginUser = function(req, res) {
 		if (user && user.password == password) {
 			req.session.user = user;
 			console.log(user);
-			res.redirect('/'); 
+			res.redirect('http://localhost:3000'); 
 		} else {	
 			console.log('No user exists.');
-			res.redirect('/');
+			res.redirect('https://localhost:3000/users/login');
 		}
 	})
 }
 
 module.exports.signoutUser = function(req, res) {
 	req.session.destroy(function(err) {
-		res.redirect('/');
+		res.redirect('https://localhost:3000');
 	})
 }
 
@@ -52,7 +52,7 @@ module.exports.addCar = function(req, res) {
 			car.save(function(err, car) {
 				user.cars.push(car);
 				user.save(function(err, user) {
-					res.redirect('/');
+					res.redirect('https://localhost:3000');
 				})
 			})
 		})
