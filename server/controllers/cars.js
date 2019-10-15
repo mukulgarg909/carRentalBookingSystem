@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var Car = mongoose.model('Car');// car model sy car structure schema
+var Car = mongoose.model('Car');
 
-// es file sy available cars show hori hai @user login
+// This file shows available when a particular user login
 module.exports.createCar = function(req, res) {
 	var name = req.body.name;
 	var type = req.body.type;
