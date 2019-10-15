@@ -5,14 +5,13 @@ var carController = require('../controllers/cars');
 var mongoose = require('mongoose');
 var Car = mongoose.model('Car');
 //var Car = require('./server/models/cars');
-var methodOverride = require('method-override') // use this module to update using put req
-//use methodOverride() ooz most of the brower dont support put and delete method as we need put to update user record
-//router.use(express.methodOverride());
+var methodOverride = require('method-override') // use this module to update car using put req
+//use methodOverride() because most of the browser dont support put() and delete() method as we need put() to update user record
+
 router.use(methodOverride('X-HTTP-Method-Override'));
 
 /* GET home page. */
 router.get('/',  carController.list);
-
 
 router.get('/users/signup', function(req, res) {
 	res.render('signup', {title: 'New User'})
@@ -33,9 +32,6 @@ router.get('/user/:userid/listcars', userController.listCars);
 router.post('/users/signup', userController.createUser);
 router.post('/users/login', userController.loginUser);
 router.post('/cars/new', carController.createCar);
-
-//router.get('/car/:carid', carController.editCar);
-
 router.get('/user/:userid/car/:carid', userController.addCar);
 
 // Update on clicking must render the template file editCars.js
@@ -69,14 +65,13 @@ router.param('carid', function(req, res, next, id){
 	});
 });
 
-
+// delete car
 router.get('/cars/delete/:id', function(req, res){
 	Car.remove({_id:req.params.id}, function(err){
 		if(err) res.joson(err);
 		else res.redirect('/');
 	})
 })
-
 
 // catch 404 and forward to error handler
 router.use(function(req, res, next) {
