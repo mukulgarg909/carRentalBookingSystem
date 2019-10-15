@@ -14,10 +14,10 @@ module.exports.createCar = function(req, res) {
 	}, function(err, data) {
 		if (err) {
 			console.log('Error');
-			res.redirect('https://localhost:3000/');
+			res.redirect('http://localhost:3000/');
 		} else {
 			console.log(data);
-			res.redirect('https://localhost:3000/');
+			res.redirect('http://localhost:3000/');
 		}
 	})
 }
@@ -28,6 +28,6 @@ module.exports.list = function(req , res) {
 			res.render('index', {title: 'Available Car List', cars: cars, user: req.session.user});
   		});
 	} else {
-		res.redirect('https://localhost:3000/users/login');
+		res.redirect('http://localhost:3000/users/login');
 	} 
 } 
