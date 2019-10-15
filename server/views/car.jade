@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Add new cars
+
+        form(method='POST' action='')
+          div.form-group
+            label(for='name') Name
+            input#name.form-control(type='text', placeholder='enter the car model name' name='name')
+          div.form-group
+            label(for="Type") Type 
+            select#rating.form-control.input-sm(name="type")
+              option Petrol
+              option Diesel
+          div.form-group
+            label(for="seats") Seats
+            select#rating.form-control.input-sm(name="seats")
+              option 4
+              option 5
+              option 6
+              option 7
+          button.btn.btn-success(type='submit') Add

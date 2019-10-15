@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Update Car
+
+        form(method='POST' action='/cars/edit/#{Car._id}')
+          input(type='hidden', name='_method', value='PUT')
+          div.form-group
+            label(for='name') Name
+            input#name.form-control(type='text', name='name', value='#{Car.name}')
+          div.form-group
+            label(for="Type") Type 
+            select#rating.form-control.input-sm(name="type", value='#{Car.type}')
+              option Petrol
+              option Diesel
+          div.form-group
+            label(for="seats") Seats
+            select#rating.form-control.input-sm(name="seats", value='#{Car.seats}')
+              option 4
+              option 5
+              option 6
+              option 7
+          button.btn.btn-success(type='submit') Update

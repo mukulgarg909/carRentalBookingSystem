@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	if user
+		h3 Hello #{user.name}
+			a.col-sm-offset-9.btn.btn-danger(href="http://localhost:3000/users/signout") Logout 
+	if user && !user.isAdmin
+		a.btn.btn-primary(href="http://localhost:3000/user/#{user._id}/listcars") View Booked Cars	
+	if user.isAdmin
+		a.btn.btn-primary(href="http://localhost:3000/cars/new") Add Cars
+	h2= title
+	hr
+	each car in cars
+		if car.isAvailable
+			h4
+				| Name: 
+				span= car.name
+				span
+				if user && !user.isAdmin
+					a.col-sm-offset-2.btn.btn-default(href="http://localhost:3000/user/#{user._id}/car/#{car._id}") Book
+				if user || user.iSAdmin
+					a.col-sm-offset-1.btn.btn-default(href="http://localhost:3000/cars/edit/#{car._id}") Update
+				if user.isAdmin || !user
+					a.col-sm-offset-1.btn.btn-default(href="http://localhost:3000/cars/delete/#{car._id}") Delete
+					
+			h4
+				| Type: 
+				span= car.type
+			h4
+				| Seats: 
+				span= car.seats
+				hr
+
+// yeh file hai user login krny k badh khul ri as front end

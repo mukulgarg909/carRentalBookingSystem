@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	if user
+		h3 Hello #{user.name}
+	
+			a.col-sm-offset-8.btn.btn-danger(href="http://localhost:3000/users/signout") Logout
+
+	
+	h2= title
+	hr
+	each car in cars
+		h4
+			| Name:  
+			span= car.name
+			span
+		h4
+			| Type:  
+			span= car.type
+		h4
+			| Seats:  
+			span= car.seats
+		h4
+			| Booking Time:   
+			span= car.bookingDate.toDateString()
+			hr
+		
+// es file meh user ki jo booked car hai voh show hori hai as front end
