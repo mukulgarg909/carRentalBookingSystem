@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = 'mongodb://localhost/CarRental';
+var dbURI = 'mongodb://process.env.PORT || 3000/CarRental';
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGOLAB_URI;
 }

@@ -3,11 +3,11 @@ extends layout
 block content
 	if user
 		h3 Hello #{user.name}
-			a.col-sm-offset-9.btn.btn-danger(href="http://localhost:3000/users/signout") Logout 
+			a.col-sm-offset-9.btn.btn-danger(users/signout") Logout 
 	if user && !user.isAdmin
-		a.btn.btn-primary(href="http://localhost:3000/user/#{user._id}/listcars") View Booked Cars	
+		a.btn.btn-primary(user/#{user._id}/listcars") View Booked Cars	
 	if user.isAdmin
-		a.btn.btn-primary(href="http://localhost:3000/cars/new") Add Cars
+		a.btn.btn-primary(cars/new") Add Cars
 	h2= title
 	hr
 	each car in cars
@@ -17,11 +17,11 @@ block content
 				span= car.name
 				span
 				if user && !user.isAdmin
-					a.col-sm-offset-2.btn.btn-default(href="http://localhost:3000/user/#{user._id}/car/#{car._id}") Book
+					a.col-sm-offset-2.btn.btn-default(user/#{user._id}/car/#{car._id}") Book
 				if user || user.iSAdmin
-					a.col-sm-offset-1.btn.btn-default(href="http://localhost:3000/cars/edit/#{car._id}") Update
+					a.col-sm-offset-1.btn.btn-default(cars/edit/#{car._id}") Update
 				if user.isAdmin || !user
-					a.col-sm-offset-1.btn.btn-default(href="http://localhost:3000/cars/delete/#{car._id}") Delete
+					a.col-sm-offset-1.btn.btn-default(cars/delete/#{car._id}") Delete
 					
 			h4
 				| Type: 
