@@ -1,5 +1,5 @@
 # carRentalBookingSystem
-This application runs on https://localhost:3000/(local server) and is build using node.js, express.js and mongo 
+This application runs on https://localhost:3000/ (local server) and is build using node.js, express.js and mongo 
 and has the following basic system features – 
 • Add new cars 
 • Book a specific car based on its availability.
