@@ -12,4 +12,4 @@ and has the following basic system features:
 
 I made this project as a backend development task given by WhitePanda Private Limited Company, Bengaluru.
 https://limitless-hamlet-35163.herokuapp.com/ has application error as till now, I am not able to host mongodb with heroku.
-But I am working on it and I will deploy the application on herko by today.
+But I am working on it and I will deploy the application on herko as soon as possible.
